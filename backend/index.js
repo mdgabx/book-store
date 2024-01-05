@@ -39,8 +39,26 @@ app.post('/book', async (req, res) => {
         }
     } catch (err) {
         console.log(err.message)
-        res.status(500).send({ message: err.message })
+        res.status(500).send({ error: err.message })
     }
+})
+
+app.get('/book', async (req, res) => {
+    
+    try {
+
+        const books = await Book.find({})
+
+        res.status(200).json({
+            count: books.length,
+            data: books
+        })
+
+    } catch (err) {
+        console.error(err)
+        res.status(500).send({ error: err.message })
+    }
+
 })
 
 
