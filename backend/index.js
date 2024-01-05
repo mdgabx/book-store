@@ -1,16 +1,48 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+const Book = require('./models/bookModel');
 
 require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
 // HTTP route
 app.get('/', (req, res) => {
     console.log(req)
     return res.status(200).send('Hello World')
 });
+
+// save a new book
+app.post('/book', async (req, res) => {
+    const { title, author, publishYear } =  req.body
+    
+    try {
+
+        if(!title || !author || !publishYear) {
+            return res.status(400).send({ message: 'Required fields' })
+        } else {
+
+           const newBook = {
+            title,
+            author,
+            publishYear
+           }
+
+           const book = await Book.create(newBook)
+
+           res.status(201).send(book)
+        }
+    } catch (err) {
+        console.log(err.message)
+        res.status(500).send({ message: err.message })
+    }
+})
+
 
 // mongo connect
 mongoose
@@ -24,5 +56,5 @@ mongoose
         
     })
     .catch((err) => {
-        console.log(`Error: ${err}`)
+        console.log("Error",`Error: ${err}`)
     })
