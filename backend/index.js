@@ -61,6 +61,20 @@ app.get('/book', async (req, res) => {
 
 })
 
+// get one book data by id
+app.get('/book/:id', async (req, res) => {
+    try {
+        const { id } = req.params
+
+        const book = await Book.findById(id)
+        res.status(200).json(book)
+
+    } catch(err) {
+        console.error(`Error: ${err}`)
+        res.status(500).send({ error: err.message })
+    }
+})
+
 
 // mongo connect
 mongoose
