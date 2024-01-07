@@ -1,8 +1,8 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const Book = require('./models/bookModel');
 const booksRoutes = require('./routes/booksRoute')
+const cors = require('cors');
 
 require('dotenv').config();
 
@@ -11,6 +11,14 @@ const PORT = process.env.PORT
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+// Middleware for handling CORS policy
+
+app.use(cors({
+    origin: 'https://localhost:5151',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: [],
+}))
 
 // HTTP route
 app.get('/', (req, res) => {
