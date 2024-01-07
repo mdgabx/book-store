@@ -75,6 +75,34 @@ app.get('/book/:id', async (req, res) => {
     }
 })
 
+app.put('/book/:id', async (req, res) => {
+    
+    const { title, author, publishYear } = req.body 
+    const { id } = req.params
+    
+    if(!title || !author || !publishYear) {
+        return res.status(400).send({ error: 'All Fields are required(s)' })
+    } 
+
+    try {
+
+        const result = await Book.findByIdAndUpdate(id, {
+            title,
+            author,
+            publishYear
+        }, {
+            new: true
+        })
+
+        res.status(200).json(result);
+
+    } catch (err) {
+        console.error('Error:', err.message)
+        res.status(500).send({ error: err.message })
+    }
+
+})
+
 
 // mongo connect
 mongoose
