@@ -39,7 +39,7 @@ app.post('/book', async (req, res) => {
         }
     } catch (err) {
         console.log(err.message)
-        res.status(500).send({ error: err.message })
+        res.status(500).send({ error: 'Internal Server Error' })
     }
 })
 
@@ -56,7 +56,7 @@ app.get('/book', async (req, res) => {
 
     } catch (err) {
         console.error(err)
-        res.status(500).send({ error: err.message })
+        res.status(500).send({ error: 'Internal Server Error' })
     }
 
 })
@@ -71,7 +71,7 @@ app.get('/book/:id', async (req, res) => {
 
     } catch(err) {
         console.error(`Error: ${err}`)
-        res.status(500).send({ error: err.message })
+        res.status(500).send({ error: 'Internal Server Error' })
     }
 })
 
@@ -94,12 +94,38 @@ app.put('/book/:id', async (req, res) => {
             new: true
         })
 
-        res.status(200).json(result);
+        if(result === null) {
+            return res.status(404).send({error: 'Book not found!'})
+        } else {
+            res.status(200).json(result);
+        }
 
     } catch (err) {
         console.error('Error:', err.message)
-        res.status(500).send({ error: err.message })
+        res.status(500).send({ error: 'Internal Server Error' })
     }
+})
+
+// delete book 
+app.delete('/book/:id', async (req, res) => {
+
+    const { id } = req.params
+
+    try {
+
+        const result = await Book.findByIdAndDelete(id)
+        
+        if(result === null){
+            return res.status(404).json({ error: 'No Book found' })
+        } 
+
+        res.status(200).json(result)
+
+    } catch(err) {
+        console.log('Error', err.message)
+        res.status(500).send({ error: 'Internal Server Error' })
+    }
+
 
 })
 
