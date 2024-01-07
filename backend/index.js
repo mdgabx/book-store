@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors({
     origin: 'https://localhost:5151',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: [],
+    allowedHeaders: ['Content-Type'],
 }))
 
 // HTTP route
