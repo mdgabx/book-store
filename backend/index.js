@@ -14,11 +14,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // Middleware for handling CORS policy
 
-app.use(cors({
-    origin: 'https://localhost:5151',
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type'],
-}))
+// app.use(cors({
+//     origin: 'http://localhost:5151/book/',
+//     methods: ['GET', 'POST', 'PUT', 'DELETE'],
+//     allowedHeaders: ['Content-Type'],
+// }))
+
+app.use(cors())
 
 // HTTP route
 app.get('/', (req, res) => {
