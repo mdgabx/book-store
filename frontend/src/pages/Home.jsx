@@ -65,7 +65,7 @@ const Home = () => {
                   </td>
                   <td className="border border-slate-700 rounded-md text-center">
                     <div className="flex items-center justify-center">
-                      <Link to={`/book/details/${book._id}`}>
+                      <Link to={`/book/detail/${book._id}`}>
                         <BsInfoCircle className="text-2xl text-green-800" />
                       </Link>
                       <Link to={`/book/edit/${book._id}`}>
