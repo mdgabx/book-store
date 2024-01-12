@@ -49,11 +49,13 @@ const Home = () => {
         </Link>
       </div>
       {
-        loading ? (
+        loading ? 
           <Spinner />
-        ) : (
+         : 
+          showType === 'table' ? 
           <BooksTable books={books} />
-        )
+         : 
+          <BooksCard books={books} />
       }
     </div>
   )
