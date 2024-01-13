@@ -25,7 +25,6 @@ const EditBook = () => {
       })
       .catch((err) => {
         setLoading(false)
-        console.log(err)
       })
   }, [])
 
