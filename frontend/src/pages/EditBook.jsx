@@ -16,7 +16,7 @@ const EditBook = () => {
     setLoading(true)
 
     axios
-      .get(`http://localhost:5151/book/${id}`)
+      .get(`https://book-crud-gd0a.onrender.com/book/${id}`)
       .then((res) => {
         setAuthor(res.data.author)
         setPublishYear(res.data.publishYear)

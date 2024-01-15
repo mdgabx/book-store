@@ -15,7 +15,7 @@ const Home = () => {
     setLoading(true)
 
     axios
-      .get('http://localhost:5151/book')
+      .get('https://book-crud-gd0a.onrender.com/book')
       .then((response) => {
           setBooks(response.data.data)
           setLoading(false)
