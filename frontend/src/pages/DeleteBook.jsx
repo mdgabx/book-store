@@ -33,7 +33,7 @@ const DeleteBook = () => {
       <BackButton dest="/" />
       
       {loading ? <Spinner /> : (
-      <div className="flex flex-col items-center font-rubik bg-white border-1 shadow rounded-xl w-[600px] p-8 mx-auto">
+      <div className="flex flex-col items-center font-rubik bg-white border-1 shadow rounded-xl sm:w-10/12 md:w-5/12 p-8 mx-auto">
         <h1 className="text-3xl my-8 text-center font-rubik">Delete Book</h1>
         <h3 className="text-2xl font-rubik italic">Are you sure to delete this book?</h3>
 

@@ -41,7 +41,7 @@ const CreateBook = () => {
       <BackButton dest='/' />
    
       {loading ? <Spinner /> : ( 
-      <div className="flex flex-col font-rubik bg-white border-1 shadow rounded-xl w-[600px] p-8 mx-auto"> 
+      <div className="flex flex-col font-rubik bg-white border-1 shadow rounded-xl sm:w-10/12 md:w-5/12 p-8 mx-auto"> 
          <h1 className="text-3xl text-center font-rubik">Create Book</h1>
         <div className="my-4">
           <label className="text-xl mr-4">Title</label>
