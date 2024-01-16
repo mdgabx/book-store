@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Grape+Nuts&family=Itim&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 body {
     height: 100vh;
-    background: linear-gradient(90deg,#bbd2c5,#536976, #292e49)
+    background: #f9f9f9;
 }

@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom"
 import Spinner from "../components/Spinner"
-import  { MdOutlineAddBox } from 'react-icons/md'
+import { IoAdd } from "react-icons/io5";
 import axios from 'axios'
 import { useState, useEffect } from "react"
 import BooksCard from "../components/home/BooksCard"
 import BooksTable from "../components/home/BooksTable"
+import { CiViewTable } from "react-icons/ci";
+import { LiaGripVerticalSolid } from "react-icons/lia";
 
 const Home = () => {
   const [books, setBooks] = useState([])
@@ -28,24 +30,24 @@ const Home = () => {
 
   return (
     <div className="container p-4">
-      <div className="flex justify-center items-center gap-x-4">
+      <div className="flex justify-center items-center gap-x-2">
         <button
-          className="bg-sky-300 hover:bg-sky-600 px-4 py-1 rounded-lg"
+          className="bg-white hover:bg-sky-600 hover:text-white px-2 py-1 border shadow"
           onClick={() => setShowType('table')}
         >
-          Table
+          <CiViewTable size={30} />
         </button>
         <button
-          className="bg-sky-300 hover:bg-sky-600 px-4 py-1 rounded-lg"
+          className="bg-white hover:bg-sky-600 hover:text-white px-2 py-1 border shadow"
           onClick={() => setShowType('card')}
         >
-          Card
+          <LiaGripVerticalSolid size={30} />
         </button>
       </div>
       <div className="flex items-center justify-between">
-        <h1 className="text-3xl my-8">Books List</h1>
-        <Link to='/book/create'>
-          <MdOutlineAddBox className="text-sky-800 text-4xl" />
+        <h1 className="text-3xl my-8 font-rubik">Books List</h1>
+        <Link to='/book/create' className="bg-white">
+          <IoAdd size={30} className="shadow hover:text-white hover:bg-sky-600" />
         </Link>
       </div>
       {
