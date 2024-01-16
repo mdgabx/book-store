@@ -1,4 +1,4 @@
-import { BsArrowLeft } from 'react-icons/bs'
+import { TiArrowBack } from "react-icons/ti";
 import { Link } from 'react-router-dom'
 
 const BackButton = ({dest}) => {
@@ -6,9 +6,9 @@ const BackButton = ({dest}) => {
   return (
     <div className="flex">
         <Link to={dest}
-        className='bg-sky-800 text-white px-4 py-1 rounded-lg w-fit'
+        className='mt-2 mx-4 bg-green-600 hover:bg-white hover:text-green-600 shadow text-white px-4 py-1 rounded-lg w-fit'
         >
-            <BsArrowLeft className='text-2xl' />
+            <TiArrowBack size={30} />
         </Link>
     </div>
   )
