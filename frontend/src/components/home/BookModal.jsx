@@ -17,16 +17,16 @@ const BookModal = ({ book, onClose }) => {
           onClick={onClose}
         />
 
-        <h2 className="w-fit px-4 py-1 bg-red-300 rounded-lg">
+        <h2 className="w-fit px-4 py-1 text-white bg-black rounded-lg">
           {book.publishYear}
         </h2>
         <h4 className="my-4 text-gray-500">{book._id}</h4>
         <div className="flex justify-start items-center gap-x-2">
-          <PiBookOpenTextLight className="text-red-300 text-2xl" />
+          <PiBookOpenTextLight className="text-2xl" />
           <h2 className="my-1">{book.title}</h2>
         </div>
         <div className="flex justify-start items-center gap-x-2">
-          <BiUserCircle className="text-red-300 text-2xl" />
+          <BiUserCircle className="text-2xl" />
           <h2 className="my-1">{book.author}</h2>
         </div>
         <div className="my-4">

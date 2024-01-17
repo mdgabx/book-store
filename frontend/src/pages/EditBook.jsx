@@ -53,7 +53,7 @@ const EditBook = () => {
   return (
     <div className="my-4">
       <BackButton dest='/' />
-      {loading ? <Spinner /> : ''}
+      {loading ? <Spinner /> : (
       <div className="flex flex-col font-rubik bg-white border-1 shadow rounded-xl rounded-xl sm:w-10/12 md:w-5/12 p-4 mx-auto"> 
         <h1 className="text-3xl text-center font-rubik">Edit Book</h1>
         <div className="my-4">
@@ -88,7 +88,7 @@ const EditBook = () => {
       <button  className="py-2 px-4 text-white mx-auto shadow bg-emerald-600 hover:bg-white hover:text-green-600 w-fit rounded-md m-8" onClick={handleEditData}>
         Save
       </button>
-      </div>
+      </div> )}
     </div>
   )
 }
